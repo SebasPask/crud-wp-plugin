@@ -30,7 +30,14 @@ class BC_Activator {
      * @access public static
 	 */
 	public static function activate() {
-        
+		global $wpdb;
+		$sql = "CREATE TABLE IF NOT EXISTS " . BC_TABLE . " ( 
+			id int(11) NOT NULL AUTO_INCREMENT,
+			nombre varchar(50) NOT NULL,
+			data longtext NOT NULL,
+			PRIMARY KEY (id) );";
+		$wpdb->query($sql);	  
+         
         
         
 	}

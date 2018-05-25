@@ -111,7 +111,14 @@ class BC_Master {
 		 * La clase responsable de definir todas las acciones en el
          * área de administración
 		 */
-        require_once BC_PLUGIN_DIR_PATH . 'admin/class-bc-admin.php';
+		require_once BC_PLUGIN_DIR_PATH . 'admin/class-bc-admin.php';
+
+		/**
+		 * La clase responsable de definir todas las acciones en el
+         * área del lado del cliente/público
+		 */
+		
+		require_once BC_PLUGIN_DIR_PATH . 'includes/class-bc-build-menupage.php';
         
         /**
 		 * La clase responsable de definir todas las acciones en el
@@ -163,7 +170,8 @@ class BC_Master {
     private function definir_admin_hooks() {
         
         $this->cargador->add_action( 'admin_enqueue_scripts', $this->bc_admin, 'enqueue_styles' );
-        $this->cargador->add_action( 'admin_enqueue_scripts', $this->bc_admin, 'enqueue_scripts' );
+		$this->cargador->add_action( 'admin_enqueue_scripts', $this->bc_admin, 'enqueue_scripts' );
+		$this->cargador->add_action( 'admin_menu', $this->bc_admin, 'add_menu' );
     }
     
     /**
@@ -176,7 +184,8 @@ class BC_Master {
     private function definir_public_hooks() {
         
         $this->cargador->add_action( 'wp_enqueue_scripts', $this->bc_public, 'enqueue_styles' );
-        $this->cargador->add_action( 'wp_enqueue_scripts', $this->bc_public, 'enqueue_scripts' );
+		$this->cargador->add_action( 'wp_enqueue_scripts', $this->bc_public, 'enqueue_scripts' );
+		
                 
     }
     

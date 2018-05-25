@@ -41,7 +41,16 @@ class BC_Admin {
 	 * @var      string    $version  La versión actual del plugin
 	 */
     private $version;
-    
+
+    /**
+	 * Versión actual del plugin
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $version  La versión actual del plugin
+	 */
+     
+    private $build_menupage;
     /**
      * @param string $plugin_name nombre o identificador único de éste plugin.
      * @param string $version La versión actual del plugin.
@@ -49,7 +58,8 @@ class BC_Admin {
     public function __construct( $plugin_name, $version ) {
         
         $this->plugin_name = $plugin_name;
-        $this->version = $version;     
+        $this->version = $version; 
+        $this->build_menupage = new BC_Build_Menupage();    
         
     }
     
@@ -109,6 +119,22 @@ class BC_Admin {
         
     }
     
+    public function add_menu() {
+        $this->build_menupage->add_menu_page(
+            __('Beziercode Datos', 'beziercode-textdomain'),
+            __('Beziercode Datos', 'beziercode-textdomain'),
+            'manage_options',
+            'bc_data',
+            [$this, 'controlador_display_menu'],
+            '',
+            22
+        );
+        $this->build_menupage->run();
+    }
+
+    public function controlador_display_menu(){
+        require_once BC_PLUGIN_DIR_PATH .'admin/partials/bc-admin-display.php';
+    }
 }
 
 

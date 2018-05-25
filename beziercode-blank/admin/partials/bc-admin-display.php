@@ -12,5 +12,5 @@
   * @subpackage Beziercode_blank/admin/parcials
   */
 
-  /* Este archivo debe consistir principalmente en HTML con un poco de PHP. */
 
+echo "All Good mate";

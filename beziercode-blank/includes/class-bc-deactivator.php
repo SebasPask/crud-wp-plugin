@@ -30,7 +30,8 @@ class BC_Deactivator {
      * @access public static
 	 */
 	public static function deactivate() {
-        
+		
+	flush_rewrite_rules();	
         
         
 	}
