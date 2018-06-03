@@ -172,6 +172,7 @@ class BC_Master {
         $this->cargador->add_action( 'admin_enqueue_scripts', $this->bc_admin, 'enqueue_styles' );
 		$this->cargador->add_action( 'admin_enqueue_scripts', $this->bc_admin, 'enqueue_scripts' );
 		$this->cargador->add_action( 'admin_menu', $this->bc_admin, 'add_menu' );
+		$this->cargador->add_action( 'wp_ajax_bc_crud_table', $this->bc_admin, 'ajax_crud_table' );
     }
     
     /**

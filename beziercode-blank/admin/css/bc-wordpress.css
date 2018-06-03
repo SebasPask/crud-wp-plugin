@@ -1,0 +1,9 @@
+.sebas_icon{
+    background: url(../img/bezier-20-wp.svg) 50% 50% no-repeat;
+}
+a:hover>.sebas_icon{
+    background-image: url(../img/bezier-20-wp-hover.svg);
+}
+a.current>.sebas_icon{
+    background-image: url(../img/bezier-20-wp-active.svg);
+}
