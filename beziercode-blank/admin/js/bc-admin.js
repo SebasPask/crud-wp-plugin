@@ -50,4 +50,15 @@
 			}
 		}
 	});
+
+	$(document).on('click', '[data-bc-id-edit]', function(){
+		var id = $(this).attr('data-bc-id-edit');
+		location.href = urledit+id;
+	});
+
+	$('.addItem').on('click', function (e) {
+		$('#addUpdate').modal('open');
+		
+	})
+
 })( jQuery );

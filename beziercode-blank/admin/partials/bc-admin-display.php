@@ -12,6 +12,9 @@
   * @subpackage Beziercode_blank/admin/parcials
   */
 
+$sql = "SELECT id, nombre FROM " . BC_TABLE;
+$result = $this->db->get_results( $sql );
+
 ?>
 
 <!-- Modal Structure -->
@@ -107,20 +110,31 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>mi primera table</td>
-                    <td>[meaqs]</td>
-                    <td>
-                        <span class="btn btn-floating waves-effect waves-light">
-                            <i class="tiny material-icons">mode_edit</i>
-                        </span>
-                    </td>
-                    <td> 
-                        <span class="btn btn-floating waves-effect waves-light red darken-1">
-                            <i class="tiny material-icons">close</i>
-                        </span>
-                    </td>
-                </tr>
+                <?php 
+                    foreach($result as $k => $v ){
+                        $id     = $v->id;
+                        $nombre = $v->nombre;
+                        echo "
+                        
+                        <tr  data-table='$id'>
+                            <td>$nombre</td>
+                            <td>[meaqs id='$id']</td>
+                            <td>
+                                <span data-bc-id-edit='$id' class='btn btn-floating waves-effect waves-light'>
+                                    <i class='tiny material-icons'>mode_edit</i>
+                                </span>
+                            </td>
+                            <td> 
+                                <span data-bc-id-remove='$id' class='btn btn-floating waves-effect waves-light red darken-1'>
+                                    <i class='tiny material-icons'>close</i>
+                                </span>
+                            </td>
+                        </tr>
+
+                        ";
+                    }
+                ?>
+                
                 </tbody>
             </table>
         </div>
